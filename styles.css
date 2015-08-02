@@ -1,0 +1,256 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
+@font-face {
+    font-family: Engel;
+    src: url(fonts/EngelLight_ltd.ttf);
+}
+
+@keyframes flash {
+    0% {
+        background-color: #dcdcdc;
+    }
+    20% {
+        background-color: #999;
+    }
+    40% {
+        background-color: #dcdcdc;
+    }
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    text-align: center;
+}
+
+div {
+    margin: 0 auto;
+}
+
+#wrapper {
+    height: 100%;
+    background-color: #ecf0f1;
+}
+
+#searchWrapper {
+    padding-top: 10vh;
+    display: table;
+    width: 100%;
+}
+
+button:focus {
+    outline: none;
+}
+
+input,
+#search {
+    transition-duration: .3s;
+    font-size: 1.5vh;
+    font-family: Source Sans Pro;
+    padding-top: 1.75vh;
+    padding-bottom: 1.75vh;
+    padding-left: 1.7vw;
+    border: none;
+    box-shadow: none;
+    display: table-cell;
+}
+
+input {
+    color: #bdc3c7;
+    width: 20vh;
+    border-top-left-radius: 5vh;
+    border-bottom-left-radius: 5vh;
+    position: relative;
+}
+
+input:focus {
+    color: #2c3e50;
+    outline: none;
+}
+
+#search {
+    color: #ecf0f1;
+    background-color: #2980b9;
+    padding-right: 2vw;
+    font-family: Source Sans Pro;
+    border-top-right-radius: 5vh;
+    border-bottom-right-radius: 5vh;
+    cursor: pointer;
+}
+
+#search:hover {
+    background-color: #5499c7;
+}
+
+#search:active {
+    background-color: #2980b9;
+}
+
+#weatherDisplay {
+    margin-top: 10vh;
+    position: relative;
+    width: 40vw;
+    margin-left: 30vw;
+    font-family: Source Sans Pro;
+}
+
+#loading {
+    padding-top: 10vh;
+}
+
+.loadingCir {
+    height: 75px;
+    width: 75px;
+    background-color: #dcdcdc;
+    border-radius: 37.5px;
+    display: inline-block;
+    margin-right: 1vh;
+    margin-left: 1vh;
+    animation: flash 1.3s ease-in infinite forwards;
+}
+
+#cir1 {
+    animation-delay: .3s;
+}
+
+#cir2 {
+    animation-delay: .6s;
+}
+
+#cir3 {
+    animation-delay: .9s;
+}
+
+#loading h1 {
+    margin-top: 3vh;
+    display: block;
+    font-family: Engel;
+}
+
+#header {
+    font-size: 1.5vh;
+    color: #ecf0f1;
+    width: 40vw;
+    display: table;
+}
+
+#city,
+#temp {
+    font-family: Engel;
+    display: table-cell;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-size: 2.7vw;
+}
+
+#city {
+    width: 65%;
+    background-color: #2c3e50;
+    border-top-left-radius: 5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+#temp {
+    color: #2980b9;
+    border-top-right-radius: 5vh;
+    background-color: white;
+    vertical-align: middle;
+}
+
+#humid-wind {
+    width: 16vw;
+    display: block;
+    margin-right: 26vw;
+    position: absolute;
+    float: left;
+    color: #2980b9;
+    font-size: 1.5vh;
+    box-sizing: border-box;
+    padding-right: 1vw;
+    padding-left: 1vw;
+}
+
+#second-row {
+    background-color: white;
+    border-bottom-right-radius: 5vh;
+    border-bottom-left-radius: 5vh;
+}
+
+#weather-text {
+    margin-top: 4vh;
+}
+
+#weather {
+    box-sizing: border-box;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    font-size: 8vh;
+    color: #ecf0f1;
+    margin-left: 16vw;
+    width: 24vw;
+    display: block;
+    background-color: #2980b9;
+    border-bottom-right-radius: 5vh;
+}
+
+#metric {
+    margin-top: 2vh;
+    font-family: Source Sans Pro;
+    background-color: #ecf0f1;
+    box-shadow: none;
+    border: none;
+    font-size: 1.5vh;
+    color: #2c3e50;
+    cursor: pointer;
+    transition-duration: .3s;
+    display: none;
+}
+
+#metric:hover {
+    opacity: .7;
+}
+
+#metric:active {
+    opacity: .5;
+}
+
+#forecastOptions {
+    margin-top: 7vh;
+    display: table;
+    font-family: Source Sans Pro;
+}
+
+#forecastOptions div {
+    display: table-cell;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+#current {
+    background-color: #2980b9;
+    border-top-left-radius: 5vh;
+    border-bottom-left-radius: 5vh;
+    color: #ecf0f1;
+}
+
+#forecast {
+    border-top-right-radius: 5vh;
+    border-bottom-right-radius: 5vh;
+    background-color: white;
+    color: #2c3e50;
+}

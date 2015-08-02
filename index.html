@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='weatherApp'>
+
+<head>
+    <!--  <base href='/forecastr/'> -->
+    <link rel='stylesheet' href='styles.css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0" />
+    <meta charset='UTF-8'>
+    <title>Forecastr</title>
+</head>
+
+<body>
+    <div id='wrapper' ng-controller='weatherCtrl'>
+        <div id='searchWrapper'>
+            <input type='text' placeholder='City Name' ng-model='current.cityName' onclick='this.select()'>
+            <button id='search' ng-click='cityWeather(current.cityName,"",type)'>Search</button>
+        </div>
+        <div id='weatherDisplay'>
+            <div id='loading'>
+                <div class='loadingCir' id='cir1'></div>
+                <div class='loadingCir' id='cir2'></div>
+                <div class='loadingCir' id='cir3'></div>
+                <h1>Loading your data... Please wait</h1>
+            </div>
+            <div id='header'>
+            </div>
+            <div id='second-row'>
+                <div id='humid-wind'>
+                </div>
+            </div>
+            <button id='metric' ng-click='changeType()'>Switch to {{switchTo}} Units</button>
+        </div>
+        <!-- <div id='forecastOptions'><div id='current'>CURRENT CONDITIONS</div><div id='forecast'>FORECASTS</div></div> -->
+    </div>
+</body>
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+<script type='text/javascript' src='js/main.js'></script>
+<script type='text/javascript' src='js/controller.js'></script>
+
+</html>
