@@ -161,6 +161,7 @@ input:focus {
     border-top-left-radius: 5vh;
     padding-left: 2vw;
     padding-right: 2vw;
+    vertical-align: middle;
 }
 
 #temp {

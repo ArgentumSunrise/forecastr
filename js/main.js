@@ -15,13 +15,18 @@ function cityWeather(location, woeid, unitType) {
             var reg = "";
             var temp = "";
             var speed = "";
+            var cityText = "";
             $('#second-row').html('<div id="humid-wind"></div>');
             if (weather.country == 'United States' || weather.country == 'Canada') {
                 reg = weather.region;
-            } else {
+                cityText = '<h1 id="city">' + weather.city + ", " + reg + '</h1>'
+            } else if (weather.country != weather.city) {
                 reg = weather.country;
+                cityText = '<h1 id="city">' + weather.city + ", " + reg + '</h1>';
+            } else if (weather.country == weather.city) {
+                cityText = '<h1 id="city"> ' + weather.city + ' </h1>';
             }
-            var header = '<h1 id="city">' + weather.city + ", " + reg + '</h1>';
+            var header = cityText;
             header += '<h1 id="temp">' + weather.temp + '&deg;' + weather.units.temp;
             $('#header').html(header);
 
