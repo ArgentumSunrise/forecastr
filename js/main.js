@@ -3,7 +3,7 @@ if ('geolocation' in navigator) {
         cityWeather(position.coords.latitude + ',' + position.coords.longitude, '', 'f');
     });
 } else {
-    cityWeather('New York, NY', '', '');
+    cityWeather('New York, NY', '', 'f');
 }
 
 function cityWeather(location, woeid, unitType) {
@@ -16,6 +16,9 @@ function cityWeather(location, woeid, unitType) {
             var temp = "";
             var speed = "";
             var cityText = "";
+            var header = "";
+            var humidwind = "";
+            var specialCase = false;
             $('#second-row').html('<div id="humid-wind"></div>');
             if (weather.country == 'United States' || weather.country == 'Canada') {
                 reg = weather.region;
@@ -25,17 +28,31 @@ function cityWeather(location, woeid, unitType) {
                 cityText = '<h1 id="city">' + weather.city + ", " + reg + '</h1>';
             } else if (weather.country == weather.city) {
                 cityText = '<h1 id="city"> ' + weather.city + ' </h1>';
+            };
+
+            $('#metric').show();
+
+            if (location == "The Sun" || location == 'the sun' || location == 'sun' || location == 'Sun') {
+                cityText = '<h1 id="city">The Sun</h1>';
+                weather.temp = '&#x7E;' + '5800';
+                weather.units.temp = 'K';
+                weather.currently = 'Fiery Inferno of Death';
+                weather.humidity = 0;
+                weather.wind.direction = 'E';
+                weather.wind.speed = 900;
+                weather.units.speed = 'km/s';
+                $('#metric').hide();
             }
-            var header = cityText;
+            header = cityText;
             header += '<h1 id="temp">' + weather.temp + '&deg;' + weather.units.temp;
             $('#header').html(header);
 
-            var humidwind = '<h1 id="weather-text">' + weather.currently + '</h1>';
+            humidwind = '<h1 id="weather-text">' + weather.currently + '</h1>';
             humidwind += '<h1 id="humidity">Hum ' + weather.humidity + '%' + '</h1>';
             humidwind += '<h1 id="wind">' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed.toUpperCase() + ' ' + '</h1>';
             $('#humid-wind').html(humidwind);
             $('#second-row').append('<div id="weather"><i class="fa fa-sun-o"></i></div>');
-            $('#metric').show();
+            $('#second-row').show();
             $('#loading').hide();
         },
         error: function (error) {

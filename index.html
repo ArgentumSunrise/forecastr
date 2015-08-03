@@ -14,7 +14,7 @@
 <body>
     <div id='wrapper' ng-controller='weatherCtrl'>
         <div id='searchWrapper'>
-            <input type='text' placeholder='City Name' ng-model='current.cityName' onclick='this.select()'>
+            <input type='text' placeholder='City Name' ng-model='current.cityName' onclick='this.select()' autofocus>
             <button id='search' ng-click='cityWeather(current.cityName,"",type)'>Search</button>
         </div>
         <div id='weatherDisplay'>
