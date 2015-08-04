@@ -57,7 +57,7 @@ function cityWeather(location, woeid, unitType) {
             humidwind += '<h1><img class="display-icon" src="imgs/display-icons/wind.png">' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed.toUpperCase() + '</h1>';
             humidwind += '<h1><img class="display-icon" src="imgs/display-icons/visibility.png">' + weather.visibility + ' ' + weather.units.distance.toUpperCase() + '</h1>';
             $('#humid-wind').html(humidwind);
-            $('#second-row').append('<div id="weather"><i class="fa fa-sun-o"></i></div>');
+            $('#second-row').append('<div id="weather"><img class="condition-icon" src="imgs/weather-icons/icon-32"></div>');
             $('#second-row').show();
             $('#loading').hide();
         },

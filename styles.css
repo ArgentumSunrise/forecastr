@@ -182,7 +182,7 @@ input:focus {
     box-sizing: border-box;
     padding-right: 15px;
     padding-left: 15px;
-    text-align: 
+    text-align:
 }
 
 #second-row {
@@ -206,13 +206,16 @@ input:focus {
     box-sizing: border-box;
     height: 100%;
     box-sizing: border-box;
-    padding-top: 75px;
-    font-size: 80px;
+    padding-top: calc(25% - 60px);
     color: #ecf0f1;
     float: right;
     width: 60%;
     background-color: #2980b9;
     border-bottom-right-radius: 5vh;
+}
+
+.condition-icon {
+    max-width: 120px;
 }
 
 #metric {
