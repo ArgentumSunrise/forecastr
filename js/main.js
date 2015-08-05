@@ -19,6 +19,7 @@ function cityWeather(location, woeid, unitType) {
             var header = "";
             var humidwind = "";
             var specialCase = false;
+            console.log(weather.currently + ' ' + weather.code);
             $('#second-row').html('<div id="humid-wind"></div>');
             if (weather.country == 'United States' || weather.country == 'Canada') {
                 reg = weather.region;
@@ -57,7 +58,7 @@ function cityWeather(location, woeid, unitType) {
             humidwind += '<h1><img class="display-icon" src="imgs/display-icons/wind.png">' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed.toUpperCase() + '</h1>';
             humidwind += '<h1><img class="display-icon" src="imgs/display-icons/visibility.png">' + weather.visibility + ' ' + weather.units.distance.toUpperCase() + '</h1>';
             $('#humid-wind').html(humidwind);
-            $('#second-row').append('<div id="weather"><img class="condition-icon" src="imgs/weather-icons/icon-32"></div>');
+            $('#second-row').append('<div id="weather"><img class="condition-icon" src="imgs/weather-icons/icon-' + weather.code + '"></div>');
             $('#second-row').show();
             $('#loading').hide();
         },
