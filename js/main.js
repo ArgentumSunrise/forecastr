@@ -19,7 +19,11 @@ function cityWeather(location, woeid, unitType) {
             var header = "";
             var humidwind = "";
             var specialCase = false;
-            console.log(weather.currently + ' ' + weather.code);
+            var vis = weather.visibility.toString();
+
+            weather.humidity = (weather.humidity ? weather.humidity : 0);
+            weather.visibility = (weather.visibility ? weather.visibility : 0);
+
             $('#second-row').html('<div id="humid-wind"></div>');
             if (weather.country == 'United States' || weather.country == 'Canada') {
                 reg = weather.region;
@@ -43,7 +47,6 @@ function cityWeather(location, woeid, unitType) {
                 weather.wind.speed = 900;
                 weather.units.speed = 'km/s';
                 weather.units.distance = '';
-                weather.visibility = 'Fire';
                 $('#metric').hide();
             }
             header = cityText;
@@ -56,7 +59,7 @@ function cityWeather(location, woeid, unitType) {
             humidwind = '<h1 id="weather-text">' + weather.currently + '</h1>';
             humidwind += '<h1><img class="display-icon" src="imgs/display-icons/humidity.png">' + weather.humidity + '%' + '</h1>';
             humidwind += '<h1><img class="display-icon" src="imgs/display-icons/wind.png">' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed.toUpperCase() + '</h1>';
-            humidwind += '<h1><img class="display-icon" src="imgs/display-icons/visibility.png">' + weather.visibility + ' ' + weather.units.distance.toUpperCase() + '</h1>';
+            humidwind += '<h1><img class="display-icon" src="imgs/display-icons/visibility.png">' + vis + ' ' + weather.units.distance.toUpperCase() + '</h1>';
             $('#humid-wind').html(humidwind);
             $('#second-row').append('<div id="weather"><img class="condition-icon" src="imgs/weather-icons/icon-' + weather.code + '"></div>');
             $('#second-row').show();

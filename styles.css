@@ -174,15 +174,14 @@ input:focus {
 
 #humid-wind {
     width: 40%;
-    padding-top: 15px;
-    position: absolute;
     float: left;
     color: #2980b9;
     font-size: 10px;
     box-sizing: border-box;
     padding-right: 15px;
     padding-left: 15px;
-    text-align:
+    height: 100%;
+    padding-top: 35px;
 }
 
 #second-row {
@@ -191,10 +190,6 @@ input:focus {
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
     display: none;
-}
-
-#weather-text {
-    margin-top: 40px;
 }
 
 .display-icon {
@@ -206,7 +201,7 @@ input:focus {
     box-sizing: border-box;
     height: 100%;
     box-sizing: border-box;
-    padding-top: calc(25% - 60px);
+    padding-top: calc(25% - 50px);
     color: #ecf0f1;
     float: right;
     width: 60%;
@@ -215,7 +210,8 @@ input:focus {
 }
 
 .condition-icon {
-    max-width: 120px;
+    max-height: 100px;
+    max-width: 180px;
 }
 
 #metric {
