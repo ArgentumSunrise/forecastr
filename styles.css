@@ -119,8 +119,8 @@ input:focus {
     background-color: #dcdcdc;
     border-radius: 37.5px;
     display: inline-block;
-    margin-right: 1vh;
-    margin-left: 1vh;
+    margin-right: 1vw;
+    margin-left: 1vw;
     animation: loadingFlash 1.3s ease-in infinite forwards;
 }
 
@@ -164,6 +164,8 @@ input:focus {
     background-color: #2c3e50;
     border-top-left-radius: 50px;
     vertical-align: middle;
+    padding-right: 25px;
+    padding-left: 25px;
 }
 
 #temp {
@@ -281,7 +283,31 @@ input:focus {
 
 @media screen and (max-width: 700px) {
     #searchWrapper {
-        margin-bottom: 10vh;
+        padding-top: 0;
+    }
+    #search {
+        float: left;
+        width: 30vw;
+        border-radius: 0;
+        box-sizing: border-box;
+        height: 10vh;
+    }
+    input {
+        float: right;
+        width: 70vw;
+        border-radius: 0;
+        box-sizing: border-box;
+        height: 10vh;
+    }
+    #loading {
+        margin-top: 20vh;
+    }
+    #loadingCir {
+        width: 30px;
+        height: 30px;
+    }
+    #loading h1 {
+        font-size: 20px;
     }
     #weatherDisplay {
         margin: 0;
@@ -294,17 +320,19 @@ input:focus {
         height: auto;
     }
     #city {
+        padding-top: 6vh;
+        padding-bottom: 6vh;
         width: 65%;
-        border-top-left-radius: 0;
+        border-radius: 0;
     }
     #temp {
         background-color: #2980b9;
         color: #ffffff;
         width: 35%;
-        border-top-right-radius: 0;
+        border-radius: 0;
     }
     #second-row {
-        border-bottom-left-radius: 0;
+        border-radius: 0;
     }
     #humid-wind {
         width: 100%;
@@ -312,15 +340,16 @@ input:focus {
         table-layout: fixed;
         height: 0;
         background-color: #ffffff;
-        padding: 4vh 5vw 4vh 5vw;
+        padding: 6vh 5vw 6vh 5vw;
     }
     #humid-wind h1 {
         display: table-cell;
+        vertical-align: middle;
     }
     #weather {
         width: 100%;
         border-bottom-right-radius: 0;
-        padding-top: 7vh;
-        padding-bottom: 7vh;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
     }
 }
