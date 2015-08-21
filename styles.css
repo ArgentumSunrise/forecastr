@@ -38,6 +38,11 @@ div {
     margin: 0 auto;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 #wrapper {
     height: 100%;
     background-color: #ecf0f1;

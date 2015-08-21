@@ -1,10 +1,14 @@
-if ('geolocation' in navigator) {
+/* if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(function (position) {
         cityWeather(position.coords.latitude + ',' + position.coords.longitude, '', 'f');
+        firstTime = false;
     });
 } else {
     cityWeather('New York, NY', '', 'f');
-}
+    $('#loading').hide();
+} */
+
+// I'll get this functional eventually... sigh...
 
 function cityWeather(location, woeid, unitType) {
     $.simpleWeather({
@@ -63,7 +67,7 @@ function cityWeather(location, woeid, unitType) {
             $('#humid-wind').html(humidwind);
             $('#second-row').append('<div id="weather"><img class="condition-icon" src="imgs/weather-icons/icon-' + weather.code + '"></div>');
             $('#second-row').show();
-            $('#loading').hide();
+            // $('#loading').hide();
         },
         error: function (error) {
             $('weatherDisplay').html('<h1 id="error"> We' + '&rsquo;' + 're sorry, but there appears to be an error. We cannot currently display your weather.</h1>');
