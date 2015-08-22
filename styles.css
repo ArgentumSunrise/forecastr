@@ -40,7 +40,10 @@ div {
 
 a {
     text-decoration: none;
-    color: white;
+}
+
+a:visited, a:hover, a:active {
+    color: inherit;
 }
 
 #wrapper {
@@ -257,17 +260,13 @@ input:focus {
 }
 
 #current {
-    background-color: #2980b9;
     border-top-left-radius: 5vh;
     border-bottom-left-radius: 5vh;
-    color: #ecf0f1;
 }
 
 #forecast {
     border-top-right-radius: 5vh;
     border-bottom-right-radius: 5vh;
-    background-color: white;
-    color: #2c3e50;
 }
 
 #bottom-banner {
