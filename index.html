@@ -13,14 +13,15 @@
 <body>
     <div id='wrapper'>
         <div id='searchWrapper' ng-controller='weatherCtrl'>
-            <input type='text' placeholder='City Name' ng-model='current.cityName' onclick='this.select()' autofocus>
+            <input id='searchCity' type='text' placeholder='City Name' ng-model='current.cityName' onclick='this.select()' autofocus>
             <button id='search' ng-click='cityWeather(current.cityName,"",type)'>Search</button>
         </div>
         <ng-view></ng-view>
-        <div id='forecastOptions'>
-            <div id='current'><a href='/#/forecast/'>CURRENT CONDITIONS</a>
+        <div id='forecastOptions' ng-controller='weatherCtrl'>
+            <div ng-style="{'background-color': curBackground, 'color': curColor}" id='current'><a href='/#/'>CURRENT CONDITIONS</a>
             </div>
-            <div id='forecast'>FORECASTS</div>
+            <div ng-style="{'background-color': fBackground, 'color': fColor}" id='forecast'><a href='/#/forecast'>FORECASTS</a>
+            </div>
         </div>
         <img id='bottom-banner' src='imgs/bottom-banner.png'>
     </div>

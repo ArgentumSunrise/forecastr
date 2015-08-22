@@ -1,4 +1,7 @@
 var weatherApp = angular.module('weatherApp', ['ngRoute']);
+var current = {};
+var currentCity = current.cityName;
+var first = true;
 
 weatherApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
@@ -19,11 +22,21 @@ weatherApp.config(['$routeProvider', function ($routeProvider) {
 weatherApp.controller('weatherCtrl', function ($scope) {
     $scope.type = 'f';
     $scope.switchTo = 'Metric'
-    $scope.current = {};
     $scope.cityWeather = cityWeather;
+    $scope.curBackground = '#2980b9';
+    $scope.curColor = '#fff';
+    $scope.fBackground = '#fff';
+    $scope.fColor = '#2c3e50';
 
     angular.element(document).ready(function () {
-        $scope.cityWeather('New York, NY', '', $scope.type);
+        var city = document.getElementById('searchCity').value;
+        if (city) {
+            currentCity = city;
+        } else {
+            currentCity = 'New York, NY';
+        }
+
+        $scope.cityWeather(currentCity, '', $scope.type);
     });
 
     $scope.changeType = function () {
@@ -35,6 +48,19 @@ weatherApp.controller('weatherCtrl', function ($scope) {
             $scope.switchTo = 'Metric';
         }
         console.log($scope.type);
-        $scope.cityWeather($scope.current.cityName, '', $scope.type);
+        $scope.cityWeather(currentCity, '', $scope.type);
     }
+    $('#current').click(function () {
+        $scope.curBackground = '#2980b9';
+        $scope.curColor = '#fff';
+        $scope.fBackground = '#fff';
+        $scope.fColor = '#2c3e50';
+    });
+
+    $('#forecast').click(function () {
+        $scope.fBackground = '#2980b9';
+        $scope.fColor = '#fff';
+        $scope.curBackground = '#fff';
+        $scope.curColor = '#2c3e50';
+    });
 });
