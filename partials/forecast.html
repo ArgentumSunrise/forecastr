@@ -1,4 +1,23 @@
-<div>
-    <h1>{{current.cityName}}</h1>
+<link rel='stylesheet' href='styles.css'>
+<div id='searchWrapper'>
+    <input id='searchCity' type='text' placeholder='City Name' onclick='this.select()' autofocus>
+    <button id='search' ng-click='citySearch()'>Search</button>
 </div>
-<h1>Actual forecasts coming soon!!! Yaaaaay!!!</h1>
+<div id='forecasts'>
+    <div class='forecast' ng-repeat='num in forecastNums'>
+        <div id='forecastWeather'>
+            <img ng-src="/imgs/weather-icons/icon-{{num.code}}" alt="Forecast Icon">
+        </div>
+        <div id='forecastData'>
+            <h1>{{num.day}}</h1>
+            <h1>High: {{num.high}}˚F</h1>
+            <h1>Low: {{num.low}}˚F</h1>
+        </div>
+    </div>
+</div>
+<div id='forecastOptions'>
+    <div id='current'><a href='/#/'>CURRENT CONDITIONS</a>
+    </div>
+    <div id='forecasted'><a href='/#/forecast'>FORECASTS</a>
+    </div>
+</div>

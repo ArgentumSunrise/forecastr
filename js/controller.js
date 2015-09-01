@@ -1,7 +1,7 @@
 var weatherApp = angular.module('weatherApp', ['ngRoute']);
-var current = {};
-var currentCity = current.cityName;
-var first = true;
+var currentCity = "";
+var x = 0;
+var forecastNums = [];
 
 weatherApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
@@ -23,21 +23,31 @@ weatherApp.controller('weatherCtrl', function ($scope) {
     $scope.type = 'f';
     $scope.switchTo = 'Metric'
     $scope.cityWeather = cityWeather;
-    $scope.curBackground = '#2980b9';
-    $scope.curColor = '#fff';
-    $scope.fBackground = '#fff';
-    $scope.fColor = '#2c3e50';
+    $scope.cityForecast = cityForecast;
+    $scope.forecastNums = forecastNums;
 
-    angular.element(document).ready(function () {
-        var city = document.getElementById('searchCity').value;
-        if (city) {
-            currentCity = city;
+    if (currentCity == false || currentCity == undefined) {
+        currentCity = "New York";
+        if (x == 0) {
+            $scope.cityWeather(currentCity, '', $scope.type);
         } else {
-            currentCity = 'New York, NY';
+            $scope.cityForecast(currentCity, '', $scope.type);
         }
 
-        $scope.cityWeather(currentCity, '', $scope.type);
-    });
+    }
+
+    document.getElementById("searchCity").value = currentCity;
+
+    $scope.citySearch = function () {
+        currentCity = document.getElementById("searchCity").value;
+        if (x == 0) {
+            $scope.cityWeather(currentCity, '', $scope.type);
+        } else {
+            $scope.cityForecast(currentCity, '', $scope.type);
+        }
+        console.log(currentCity);
+        console.log($scope.forecastNums[1].code + '  --  ' + x);
+    }
 
     $scope.changeType = function () {
         if ($scope.type == 'f') {
@@ -50,17 +60,50 @@ weatherApp.controller('weatherCtrl', function ($scope) {
         console.log($scope.type);
         $scope.cityWeather(currentCity, '', $scope.type);
     }
+
     $('#current').click(function () {
-        $scope.curBackground = '#2980b9';
-        $scope.curColor = '#fff';
-        $scope.fBackground = '#fff';
-        $scope.fColor = '#2c3e50';
+        $(this).css({
+            'background-color': '#2980b9',
+            'color': '#fff'
+        });
+        $('#forecasted').css({
+            'background-color': '#fff',
+            'color': '#2c3e50'
+        });
+        x = 0;
+        $scope.citySearch();
     });
 
-    $('#forecast').click(function () {
-        $scope.fBackground = '#2980b9';
-        $scope.fColor = '#fff';
-        $scope.curBackground = '#fff';
-        $scope.curColor = '#2c3e50';
+    $('#forecasted').click(function () {
+        $(this).css({
+            'background-color': '#2980b9',
+            'color': '#fff'
+        });
+        $('#current').css({
+            'background-color': '#fff',
+            'color': '#2c3e50'
+        });
+        x = 1;
+        $scope.citySearch();
     });
+
+    if (x == 0) {
+        $('#current').css({
+            'background-color': '#2980b9',
+            'color': '#fff'
+        });
+        $('#forecasted').css({
+            'background-color': '#fff',
+            'color': '#2c3e50'
+        });
+    } else {
+        $('#forecasted').css({
+            'background-color': '#2980b9',
+            'color': '#fff'
+        });
+        $('#current').css({
+            'background-color': '#fff',
+            'color': '#2c3e50'
+        });
+    }
 });

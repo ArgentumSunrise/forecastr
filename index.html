@@ -12,19 +12,9 @@
 
 <body>
     <div id='wrapper'>
-        <div id='searchWrapper' ng-controller='weatherCtrl'>
-            <input id='searchCity' type='text' placeholder='City Name' ng-model='current.cityName' onclick='this.select()' autofocus>
-            <button id='search' ng-click='cityWeather(current.cityName,"",type)'>Search</button>
-        </div>
         <ng-view></ng-view>
-        <div id='forecastOptions' ng-controller='weatherCtrl'>
-            <div ng-style="{'background-color': curBackground, 'color': curColor}" id='current'><a href='/#/'>CURRENT CONDITIONS</a>
-            </div>
-            <div ng-style="{'background-color': fBackground, 'color': fColor}" id='forecast'><a href='/#/forecast'>FORECASTS</a>
-            </div>
-        </div>
-        <img id='bottom-banner' src='imgs/bottom-banner.png'>
     </div>
+    <img id='bottom-banner' src='imgs/bottom-banner.png'>
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
     <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -34,5 +24,3 @@
 </body>
 
 </html>
-
-<!-- Fix the routing issues tomorrow. (8/19/15). -->
