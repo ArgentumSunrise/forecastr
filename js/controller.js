@@ -7,11 +7,11 @@ weatherApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/', {
         controller: 'weatherCtrl',
-        templateUrl: '/partials/search.html',
+        templateUrl: 'partials/search.html',
     }).
     when('/forecast', {
         controller: 'weatherCtrl',
-        templateUrl: '/partials/forecast.html',
+        templateUrl: 'partials/forecast.html',
     }).
     otherwise({
         redirectTo: '/',
