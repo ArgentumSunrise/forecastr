@@ -6,12 +6,12 @@ var forecastNums = [];
 weatherApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/', {
-        controller: 'weatherCtrl',
         templateUrl: 'partials/search.html',
+        controller: 'weatherCtrl',
     }).
     when('/forecast', {
-        controller: 'weatherCtrl',
         templateUrl: 'partials/forecast.html',
+        controller: 'weatherCtrl',
     }).
     otherwise({
         redirectTo: '/',
