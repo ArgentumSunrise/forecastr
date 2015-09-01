@@ -42,7 +42,9 @@ a {
     text-decoration: none;
 }
 
-a:visited, a:hover, a:active {
+a:visited,
+a:hover,
+a:active {
     color: inherit;
 }
 
@@ -171,8 +173,8 @@ input:focus {
     background-color: #2c3e50;
     border-top-left-radius: 50px;
     vertical-align: middle;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 35px;
+    padding-left: 35px;
 }
 
 #temp {
@@ -207,16 +209,67 @@ input:focus {
     margin-right: 10px;
 }
 
-#weather {
+#weather,
+#forecastWeather {
     box-sizing: border-box;
-    height: 100%;
     box-sizing: border-box;
     padding-top: calc(25% - 50px);
+}
+
+#weather {
     color: #ecf0f1;
+    height: 100%;
     float: right;
     width: 60%;
     background-color: #2980b9;
     border-bottom-right-radius: 5vh;
+}
+
+#forecasts {
+    width: 70vw;
+    padding-top: 5vh;
+}
+
+.forecast:first-child > #forecastWeather {
+    border-top-left-radius: 50px;
+}
+
+.forecast:last-child > #forecastWeather {
+    border-top-right-radius: 50px;
+}
+
+.forecast:first-child > #forecastData {
+    border-bottom-left-radius: 50px;
+}
+
+.forecast:last-child > #forecastData {
+    border-bottom-right-radius: 50px;
+}
+
+.forecast {
+    width: 20%;
+    float: left;
+}
+
+#forecastData {
+    background-color: #fff;
+    padding: 20px 0 25px;
+    font-family: Source Sans Pro;
+    color: #2c3e50;
+    font-size: 9px;
+    line-height: 30px;
+}
+
+#forecastWeather {
+    background-color: #2980b9;
+    padding: 55px 10px;
+    box-sizing: border-box;
+    height: 175px;
+}
+
+#forecastWeather img {
+    max-height: 70px;
+    max-width: 110px;
 }
 
 .condition-icon {
@@ -246,9 +299,9 @@ input:focus {
 }
 
 #forecastOptions {
-    margin-top: 7vh;
-    display: table;
+    display: inline-block;
     font-family: Source Sans Pro;
+    margin-top: 5vh;
 }
 
 #forecastOptions div {
@@ -264,7 +317,7 @@ input:focus {
     border-bottom-left-radius: 5vh;
 }
 
-#forecast {
+#forecasted {
     border-top-right-radius: 5vh;
     border-bottom-right-radius: 5vh;
 }
