@@ -90,7 +90,7 @@ function cityForecast(location, woeid, unitType) {
             $('#loading').hide();
 
             for (var i = 0; i < 5; i++) {
-                html += '<div class="forecast"><div id="forecastWeather"><img src = "/imgs/weather-icons/icon-' + weather.forecast[i].code + '" alt="Forecast Icon"></div>';
+                html += '<div class="forecast"><div id="forecastWeather"><img src = "imgs/weather-icons/icon-' + weather.forecast[i].code + '" alt="Forecast Icon"></div>';
                 html += '<div id="forecastData"><h1>' + weather.forecast[i].day + '</h1>';
                 html += '<h1><span>High:</span> ' + weather.forecast[i].high + '</h1>';
                 html += '<h1><span>Low:</span> ' + weather.forecast[i].low + '</h1></div></div>';
