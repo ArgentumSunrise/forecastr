@@ -1,7 +1,6 @@
 var weatherApp = angular.module('weatherApp', ['ngRoute']);
 var currentCity = "";
 var x = 0;
-var forecastNums = [];
 
 weatherApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
@@ -24,7 +23,6 @@ weatherApp.controller('weatherCtrl', function ($scope) {
     $scope.switchTo = 'Metric'
     $scope.cityWeather = cityWeather;
     $scope.cityForecast = cityForecast;
-    $scope.forecastNums = forecastNums;
 
     if (currentCity == false || currentCity == undefined) {
         currentCity = "New York";
@@ -46,7 +44,6 @@ weatherApp.controller('weatherCtrl', function ($scope) {
             $scope.cityForecast(currentCity, '', $scope.type);
         }
         console.log(currentCity);
-        console.log($scope.forecastNums[1].code + '  --  ' + x);
     }
 
     $scope.changeType = function () {

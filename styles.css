@@ -32,6 +32,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     text-align: center;
+    background-color: #ecf0f1;
 }
 
 div {
@@ -48,14 +49,13 @@ a:active {
     color: inherit;
 }
 
-#wrapper {
-    height: 100%;
-    background-color: #ecf0f1;
-    z-index: -1;
+#searchWrapper,
+#weatherDisplay,
+#forecastDisplay {
+    z-index: 1;
 }
 
 #searchWrapper {
-    z-index: 1;
     padding-top: 10vh;
     display: table;
     width: 100%;
@@ -84,6 +84,7 @@ input {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     position: relative;
+    margin-right: -5px;
 }
 
 input:focus {
@@ -110,16 +111,22 @@ input:focus {
 }
 
 #weatherDisplay {
-    z-index: 1;
-    margin-top: 10vh;
-    position: relative;
     width: 500px;
     margin-left: calc(50% - 250px);
+}
+
+#forecastDisplay {}
+
+#forecastDisplay,
+#weatherDisplay {
+    margin-top: 10vh;
+    position: relative;
     font-family: Source Sans Pro;
 }
 
 #loading {
     padding-top: 10vh;
+    position: relative;
 }
 
 .loadingCir {
@@ -249,6 +256,7 @@ input:focus {
 .forecast {
     width: 20%;
     float: left;
+    margin-bottom: 60px;
 }
 
 #forecastData {
@@ -256,8 +264,8 @@ input:focus {
     padding: 20px 0 25px;
     font-family: Source Sans Pro;
     color: #2c3e50;
-    font-size: 9px;
-    line-height: 30px;
+    font-size: 10px;
+    line-height: 27px;
 }
 
 #forecastWeather {
@@ -299,9 +307,9 @@ input:focus {
 }
 
 #forecastOptions {
-    display: inline-block;
     font-family: Source Sans Pro;
     margin-top: 5vh;
+    display: table;
 }
 
 #forecastOptions div {
@@ -325,19 +333,21 @@ input:focus {
 #bottom-banner {
     width: 110vw;
     bottom: 0;
-    margin-left: -56.7vw;
-    margin-right: auto;
-    position: fixed;
+    left: -7.5vw;
+    position: absolute;
 }
 
 @media screen and (max-width: 1000px) {
     #bottom-banner {
-        position: relative;
         display: none;
     }
 }
 
 @media screen and (max-width: 700px) {
+    html,
+    body {
+        background-color: #2980b9;
+    }
     #searchWrapper {
         padding-top: 0;
     }
@@ -347,6 +357,12 @@ input:focus {
         border-radius: 0;
         box-sizing: border-box;
         height: 10vh;
+        padding-top: 30px;
+        padding-bottom: 50px;
+        background-color: #2c3e50;
+    }
+    #search:active {
+        background-color: #2c3e50;
     }
     input {
         float: right;
@@ -354,6 +370,9 @@ input:focus {
         border-radius: 0;
         box-sizing: border-box;
         height: 10vh;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-right: 0;
     }
     #loading {
         margin-top: 20vh;
@@ -365,7 +384,8 @@ input:focus {
     #loading h1 {
         font-size: 20px;
     }
-    #weatherDisplay {
+    #weatherDisplay,
+    #forecastDisplay {
         margin: 0;
         position: absolute;
         width: 100vw;
@@ -376,36 +396,76 @@ input:focus {
         height: auto;
     }
     #city {
-        padding-top: 6vh;
-        padding-bottom: 6vh;
-        width: 65%;
-        border-radius: 0;
+        padding: 8vh 0 0 0;
+        width: 100%;
+        display: block;
     }
     #temp {
-        background-color: #2980b9;
         color: #ffffff;
-        width: 35%;
+        display: block;
+    }
+    #city,
+    #temp {
+        background-color: #2980b9;
         border-radius: 0;
+        margin: 0;
     }
     #second-row {
         border-radius: 0;
     }
     #humid-wind {
-        width: 100%;
-        display: table;
-        table-layout: fixed;
-        height: 0;
-        background-color: #ffffff;
-        padding: 6vh 5vw 6vh 5vw;
-    }
-    #humid-wind h1 {
-        display: table-cell;
-        vertical-align: middle;
+        display: none;
     }
     #weather {
         width: 100%;
         border-bottom-right-radius: 0;
-        padding-top: 10vh;
-        padding-bottom: 10vh;
+        padding-top: 4vh;
+        padding-bottom: 8vh;
+    }
+    #metric {
+        padding: 10px 15px;
+        color: white;
+        font-size: 15px;
+    }
+    #forecastOptions {
+        width: 100vw;
+        bottom: 0;
+        position: fixed;
+    }
+    #forecastOptions div {
+        border-radius: 0;
+        padding-bottom: 5vh;
+        padding-top: 5vh;
+    }
+    #forecastWeather {
+        padding-top: 6%;
+        height: 5vh;
+        width: 35%;
+        float: left;
+    }
+    #forecastWeather img {
+        max-height: 35px;
+        max-width: 55px;
+    }
+    #forecastData {
+        background-color: #2980b9;
+        color: #fff;
+        display: table;
+        table-layout: fixed;
+    }
+    #forecastData h1 {
+        display: table-cell;
+    }
+    #forecastData h1 > span {
+        display: none;
+    }
+    .forecast {
+        height: 5%;
+        margin: 0;
+        width: 100%;
+    }
+    #forecastData {
+        width: 65%;
+        float: right;
     }
 }

@@ -25,6 +25,8 @@ function cityWeather(location, woeid, unitType) {
             var cityText = "";
             var reg = "";
 
+            $('#loading').hide();
+
             weather.humidity = (weather.humidity ? weather.humidity : 0);
             weather.visibility = (weather.visibility ? weather.visibility : 0);
 
@@ -83,20 +85,20 @@ function cityForecast(location, woeid, unitType) {
         woeid: woeid,
         unit: unitType,
         success: function (weather) {
+            var html = "";
+            $('#forecasts').html("");
+            $('#loading').hide();
+
             for (var i = 0; i < 5; i++) {
-                forecastNums.push({
-                    day: weather.forecast[i].day,
-                    code: weather.forecast[i].code,
-                    high: weather.forecast[i].high,
-                    low: weather.forecast[i].low,
-                });
-                if (forecastNums.length >= 6) {
-                    forecastNums.shift();
-                }
-            }
+                html += '<div class="forecast"><div id="forecastWeather"><img src = "/imgs/weather-icons/icon-' + weather.forecast[i].code + '" alt="Forecast Icon"></div>';
+                html += '<div id="forecastData"><h1>' + weather.forecast[i].day + '</h1>';
+                html += '<h1><span>High:</span> ' + weather.forecast[i].high + '</h1>';
+                html += '<h1><span>Low:</span> ' + weather.forecast[i].low + '</h1></div></div>';
+            };
+            $('#forecasts').html(html);
         },
         error: function (error) {
             $('weatherDisplay').html('<h1> We' + '&rsquo;' + 're sorry, but there appears to be an error. We cannot currently display your weather.</h1>');
         }
     })
-};
+}
