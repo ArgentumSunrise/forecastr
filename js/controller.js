@@ -5,12 +5,12 @@ var x = 0;
 weatherApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/', {
+        templateUrl: 'partials/search.html',
         controller: 'weatherCtrl',
-        templateUrl: '/partials/search.html',
     }).
     when('/forecast', {
+        templateUrl: 'partials/forecast.html',
         controller: 'weatherCtrl',
-        templateUrl: '/partials/forecast.html',
     }).
     otherwise({
         redirectTo: '/',

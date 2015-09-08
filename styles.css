@@ -115,8 +115,6 @@ input:focus {
     margin-left: calc(50% - 250px);
 }
 
-#forecastDisplay {}
-
 #forecastDisplay,
 #weatherDisplay {
     margin-top: 10vh;
