@@ -222,7 +222,10 @@ input:focus {
 #forecastWeather {
     box-sizing: border-box;
     box-sizing: border-box;
-    padding-top: calc(25% - 50px);
+}
+
+#forecastWeather {
+    padding-top: 25%;
 }
 
 #weather {
@@ -232,6 +235,7 @@ input:focus {
     width: 60%;
     background-color: #2980b9;
     border-bottom-right-radius: 5vh;
+    padding-top: ;
 }
 
 #forecasts {
@@ -461,6 +465,9 @@ input:focus {
     }
     #forecastData h1 > span {
         display: none;
+    }
+    #forecastData h1:last-child {
+        margin-bottom: 10vh;
     }
     .forecast {
         height: 5%;
