@@ -35,6 +35,14 @@ body {
     background-color: #ecf0f1;
 }
 
+::selection {
+    background-color: #7fb3d5;
+}
+
+::-moz-selection {
+    background-color: #7fb3d5;
+}
+
 div {
     margin: 0 auto;
 }
