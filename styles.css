@@ -121,6 +121,7 @@ input:focus {
 #weatherDisplay {
     width: 600px;
     margin-left: calc(50% - 300px);
+    margin-top: 10vh;
 }
 
 #forecastDisplay {
@@ -129,7 +130,6 @@ input:focus {
 
 #forecastDisplay,
 #weatherDisplay {
-    margin-top: 10vh;
     position: relative;
     font-family: Source Sans Pro;
 }
